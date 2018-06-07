@@ -1,3 +1,7 @@
+# 中文版
+
+[Lucien's Blog](https://www.lucien.ink/archives/252/)
+
 # What's NetClip
 Move information between computers using the any url you like.
 
