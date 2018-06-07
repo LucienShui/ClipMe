@@ -20,9 +20,10 @@ function homepage() {
 }
 
 function editpage($file_path) {
-	$html = combine(file('./edit.html'));
-	$tmp = "<textarea name='file_path' style='display: none'>{$file_path}</textarea>" . genTextarea("text", "Input something there, press \"Enter\" to submit.", "70%", "50%");
-	return str_replace('&$text_area&$', $tmp, $html);
+	$pre = "<html><head><title>NetClip</title></head><form action='./submit.php' method='post'><div>";
+	$mid = "<textarea name='file_path' style='display: none'>{$file_path}</textarea>" . genTextarea("text", "Input something there, press \"Enter\" to submit.", "70%", "50%");
+    $suf = "</div><div><input type='submit' value='submit'/></div></form></html>";
+	return $pre . $mid . $suf;
 }
 
 function footer() {
@@ -35,13 +36,12 @@ if ($file_name == "") echo homepage();
 else {
     $file_path = "./file/" . $file_name;
     if (file_exists($file_path)) {
-    	echo "<link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css'>
-<script src='//cdn.bootcss.com/jquery/1.11.2/jquery.min.js'></script>
-<script src='//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js'></script><body><div>";
         echo genTextarea("output", combine(file($file_path)), "70%", "50%");
-        echo "</div></body>";
+      	echo "<div><a href='http://{$_SERVER['HTTP_HOST']}'>
+		  		<input type='button' title='Back to home' value='Back to home'/></a>";
         unlink($file_path);
     } else echo editpage($file_path);
 }
 ?>
+
 
