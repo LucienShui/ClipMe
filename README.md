@@ -51,7 +51,7 @@ if (!-e $request_filename) {
 
 ## Tips
 
-+ For security the information in [clip.lucien.ink](http://www.lucien.ink/clip) is destroyed as soon as it is read.
++ For security the information in [clip.lucien.ink](http://www.lucien.ink/go/clip) is destroyed as soon as it is read.
 
 + Anyone visiting the same URL at a later time will not be able to see the message.
 
