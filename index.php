@@ -6,40 +6,41 @@ function genTextarea($name, $value, $width, $height, $placeholder = '') {
     else $html .= "></textarea>";
     return $html;
 }
+
+function combine($arr) {
+	$ret = "";
+	foreach ($arr as $line) $ret = $ret . $line;
+	return $ret;
+}
+
 function homepage() {
     $hostname = $_SERVER['HTTP_HOST'];
-    $html = "<h2><a href = 'http://{$hostname}'>{$hostname}</a> lets you move information between computers using the any url you like.<h2/>";
-    $html = $html . "<h3>How to use:<h3/>";
-    $html = $html . "<h4>&emsp;1.Enter the ANY URL in browser and type or paste in what you want.<h4/>";
-    $html = $html . "<h4>&emsp;2.On another computer or smartphone enter in the same URL to retrive the information.<h4/>";
-    $html = $html . "<h3>Tips:<h3/>";
-    $html = $html . "<h4>&emsp;For security the information in the {$hostname} url is destroyed as soon as it is read.<h4/>";
-    $html = $html . "<h4>&emsp;Anyone visiting the same URL at a later time will not be able to see the message.<h4/>";
-    $html = $html . "<h3>For Example:<h3/>";
-    $html = $html . "<h4>&emsp;<a href='http://{$hostname}/example'>{$hostname}/example<a/><h4/>";
-    return $html;
+    return combine(file('./homepage.html'));
+}
+
+function editpage($file_path) {
+	$html = combine(file('./edit.html'));
+	$html = $html . "<textarea name='file_path' style='display: none'>{$file_path}</textarea>";
+	$html = $html . genTextarea("text", "Input something there, press \"Enter\" to submit.", "100%", "100%");
+	$html = $html . "</div><div><input type='submit' value='submit'/></div></form></div></div></body></html>";
+	return $html;
 }
 
 function footer() {
 
 }
 
-$url = $_SERVER["PATH_INFO"];
-if ($url == "") echo homepage();
+
+$file_name = str_replace('/', '', $_SERVER["PATH_INFO"]);
+if ($file_name == "") echo homepage();
 else {
-    $file_path = "./file" . $url;
-    $file_name = str_replace('/', '', $url);
+    $file_path = "./file/" . $file_name;
     if (file_exists($file_path)) {
-        $text_tmp = file($file_path);
-        $text = "";
-        foreach ($text_tmp as $line) $text = $text . $line;
-        echo genTextarea("output", $text, "100%", "100%");
+        echo genTextarea("output", combine(file($file_path)), "100%", "100%");
         unlink($file_path);
     } else {
-        echo "<form action='./submit.php' method='post'><div>
-                <textarea name='filename' style='display: none'>{$file_name}</textarea>";
-        echo genTextarea("text", "Input something there, press \"Enter\" to submit.", "100%", "90%");
-        echo "</div><div><input type='submit' value='submit''/></div></form>";
+        echo editpage($file_path);
     }
 }
 ?>
+
