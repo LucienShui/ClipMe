@@ -29,7 +29,7 @@ if ($file_name == "") {
         unlink($file_path);
     } else {
         $html = str_combine(file('./base.html'));
-        $tmp = "<b>This file is empty, you can input something below</b><form action='./submit.php' method='post'><textarea name='file_path' style='display: none'>{$file_path}</textarea>" . genTextarea("text", "rows=10") . "<input type='submit' value='submit'/></form>";
+        $tmp = "<b>This file is empty, you can input something below</b><form action='./submit.php' method='post'><textarea name='file_path' style='display: none'>{$file_path}</textarea>" . genTextarea("text", "rows=10") . "<input type='submit' value='Submit'/></form>";
         echo str_replace('{&body}', $tmp, $html);
     }
 }
