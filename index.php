@@ -13,9 +13,9 @@ function combine($arr) {
 	return $ret;
 }
 
-function homepage() {
+function homePage() {
     $hostname = $_SERVER['HTTP_HOST'];
-    $html = combine(file('./homepage.html'));
+    $html = combine(file('./homePage.html'));
     return str_replace('{&hostname}', $hostname, $html);
 }
 
@@ -32,7 +32,7 @@ function footer() {
 
 
 $file_name = str_replace('/', '', $_SERVER["PATH_INFO"]);
-if ($file_name == "") echo homepage();
+if ($file_name == "") echo homePage();
 else {
     $file_path = "./file/" . $file_name;
     if (file_exists($file_path)) {
