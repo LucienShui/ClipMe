@@ -12,8 +12,14 @@ function str_combine($arr) {
 $file_name = str_replace('/', '', $_SERVER["PATH_INFO"]);
 if ($file_name == "") {
     $hostname = $_SERVER['HTTP_HOST'];
-    $html = str_combine(file('./homePage.html'));
-    echo str_replace('{&hostname}', $hostname, $html);
+    $html = str_combine(file('./base.html'));
+    $tmp = "<h2>How to use</h2>
+    <li><p>Enter any word behind this page's URL in browser and input anything you want.</p></li>
+    <li><p>On another PC or Phone enter in the same URL to view the information.</p></li>
+    <p><b>For example: <a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></p>
+    <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>More information...</a></p>
+    <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 Lucien Shui</a></p>";
+    echo str_replace('{&body}', $tmp, $html);
 } else {
     $file_path = "./file/" . $file_name;
     if (file_exists($file_path)) {
