@@ -15,15 +15,14 @@ function combine($arr) {
 
 function homepage() {
     $hostname = $_SERVER['HTTP_HOST'];
-    return combine(file('./homepage.html'));
+    $html = combine(file('./homepage.html'));
+    return str_replace('{&hostname}', $hostname, $html);
 }
 
 function editpage($file_path) {
 	$html = combine(file('./edit.html'));
-	$html = $html . "<textarea name='file_path' style='display: none'>{$file_path}</textarea>";
-	$html = $html . genTextarea("text", "Input something there, press \"Enter\" to submit.", "100%", "100%");
-	$html = $html . "</div><div><input type='submit' value='submit'/></div></form></div></div></body></html>";
-	return $html;
+	$tmp = "<textarea name='file_path' style='display: none'>{$file_path}</textarea>" . genTextarea("text", "Input something there, press \"Enter\" to submit.", "70%", "50%");
+	return str_replace('&$text_area&$', $tmp, $html);
 }
 
 function footer() {
@@ -36,11 +35,13 @@ if ($file_name == "") echo homepage();
 else {
     $file_path = "./file/" . $file_name;
     if (file_exists($file_path)) {
-        echo genTextarea("output", combine(file($file_path)), "100%", "100%");
+    	echo "<link rel='stylesheet' href='//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<script src='//cdn.bootcss.com/jquery/1.11.2/jquery.min.js'></script>
+<script src='//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js'></script><body><div>";
+        echo genTextarea("output", combine(file($file_path)), "70%", "50%");
+        echo "</div></body>";
         unlink($file_path);
-    } else {
-        echo editpage($file_path);
-    }
+    } else echo editpage($file_path);
 }
 ?>
 
