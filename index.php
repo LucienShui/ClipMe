@@ -16,7 +16,7 @@ if ($file_name == "") {
     $tmp = "<h2>How to use</h2>
     <li><p>Enter any word behind this page's URL in browser and input anything you want.</p></li>
     <li><p>On any PC or Phone enter in the same URL to view the text you write just now.</p></li>
-    <p><b>For example: <a href = 'http://{$hostname}/example' target='_blank'>{$hostname}/example</a></b></p>
+    <p><b>For example: <a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></p>
     <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>More information...</a></p>
     <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 Lucien Shui</a></p>";
     echo str_replace('{&body}', $tmp, $html);
