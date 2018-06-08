@@ -62,7 +62,7 @@
             $hostname = $_SERVER['HTTP_HOST']; // 获取当前域名
             echo "<h2>使用指北</h2>
             <p><li>在网址的后面随意添加一些文字，举个栗子：<b><a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></li></p>
-            <p><li>访问相同网址就可以看到对应的内容，每个内容只能被查看一次</li></p>
+            <p><li>访问相同的网址或扫描二维码就可以查看对应的内容，每个内容只能被查看一次</li></p>
             <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>更多信息...</a></p>
             <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 版权所有 Lucien Shui</a></p>";
         } else {
@@ -96,13 +96,12 @@
             fwrite($newfile, $text); // 写入
             if (file_exists($file_path)) { // 如果写入成功
                 echo "<h2>保存成功</h2>
-                      <p>其它设备访问 <b>{$host_name}/{$file_name}</b> 就可以看到刚才保存的内容</p>
-                      <p>请注意，每个被保存的内容至多能被查看一次，没有被查看过的内容至多保留一年</p>
+                      <p><li>其它设备访问 <b>{$host_name}/{$file_name}</b> 或 <a href = 'http://cli.im/api/qrcode/code?text=http://{$host_name}/{$file_name}&mhid=vUrGDFu7mZ8hMHcqL9xTPao' target='_blank'>扫描二维码</a> 就可以看到刚才保存的内容</li></p>
+                      <p><li>请注意，每个内容只能被查看一次，没有被查看过的内容至多保留一年</li></p>
                       <a href='http://{$host_name}'><input type='button' title='goback' value='返回主页'/></a>";
             } else echo "<p>Failed</p>";
         }
     }
-
     ?>
 </div>
 </body>
