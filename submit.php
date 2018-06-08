@@ -1,4 +1,5 @@
 <?php
+
 function str_combine($arr) { // 将一个string数组连接成一个string
     $ret = "";
     foreach ($arr as $line) $ret = $ret . $line;
@@ -21,13 +22,12 @@ else {
 		fwrite($newfile, $text); // 写入
 		$html = str_combine(file('./base.html')); // 网页框架
 		if (file_exists($file_path)) { // 如果写入成功
-			echo str_replace('{&body}', "<h2>Saved</h2><p>3 seconds go back home automatically.</p>", $html);
-			header("refresh:3;url=http://{$host_name}"); // 三秒自动跳转
+			$tmp = "<h2>Successfully saved</h2><p>On any browser enter in <b>http://{$host_name}/{$file_name}</b> to view the content.</p><p>Please note that the information can be viewed only once.</p><a href='http://{$host_name}'><input type='button' title='goback' value='Home'/></a>";
+			// <p>3 seconds go back home automatically.</p>
+			echo str_replace('{&body}', $tmp, $html);
+			// header("refresh:3;url=http://{$host_name}"); // 三秒自动跳转
 		} else echo str_replace('{&body}', "<p>Failed</p>", $html);
 	}
 }
 
 ?>
-
-
-
