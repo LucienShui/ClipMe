@@ -1,3 +1,5 @@
+[TOC]
+
 # NetClip
 
 在不同的设备之间用自定义的链接来传输文本内容。
@@ -9,7 +11,7 @@ web_site_root
  └─ index.php
 ```
 
-## Rewrite（必须）
+### Rewrite（必须）
 
 #### Nginx
 
