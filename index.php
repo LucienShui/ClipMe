@@ -21,7 +21,8 @@ if ($file_name == "") {
     <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 Lucien Shui</a></p>";
     echo str_replace('{&body}', $tmp, $html);
 } else {
-    $file_path = "./file/" . $file_name;
+    $file_name = str_replace('.', 'dot', $file_name);
+    $file_path = "./.file/" . $file_name;
     if (file_exists($file_path)) {
         $html = str_combine(file('./base.html'));
         $tmp = "<b>The file shows below</b>" . genTextarea("output", "rows=10 readonly='readonly'", str_combine(file($file_path))) . "<a href='http://{$_SERVER['HTTP_HOST']}'><input type='button' title='Back to home' value='Back to home'/></a>";
@@ -34,3 +35,4 @@ if ($file_name == "") {
     }
 }
 ?>
+
