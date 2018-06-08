@@ -60,27 +60,26 @@
         $file_name = str_replace('/', '', $_SERVER["REQUEST_URI"]); // 取当前路由的后缀
         if ($file_name == "") { // 如果没有后缀，那么显示主页
             $hostname = $_SERVER['HTTP_HOST']; // 获取当前域名
-            echo "<h2>How to use</h2>
-            <p><li>Enter any word behind this page's URL in browser and input anything you want.</li></p>
-            <p><li>On any PC or Phone enter in the same URL to view the text you write just now.</li></p>
-            <p><b>For example: <a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></p>
-            <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>More information...</a></p>
-            <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 Lucien Shui</a></p>";
+            echo "<h2>使用指北</h2>
+            <p><li>在网址的后面随意添加一些文字，举个栗子：<b><a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></li></p>
+            <p><li>访问相同网址就可以看到对应的内容，每个内容只能被查看一次</li></p>
+            <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>更多信息...</a></p>
+            <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 版权所有 Lucien Shui</a></p>";
         } else {
             $file_name = str_replace('.', 'dot', $file_name); // 将"."全部替换
             $file_path = "./.file/" . $file_name; // 文件路径
             $host_name = $_SERVER['HTTP_HOST'];
             if (file_exists($file_path)) { // 如果文件存在
-                echo "<b>The file shows below</b>";
+                echo "<b>呀，这个文件居然不是空的</b>";
                 echo genTextarea("output", "rows=10 readonly='readonly'", str_combine(file($file_path)));
-                echo "<a href='http://{$host_name}'><input type='button' title='goback' value='Home'/></a>";
+                echo "<a href='http://{$host_name}'><input type='button' title='goback' value='返回主页'/></a>";
                 unlink($file_path);
             } else { // 如果文件不存在
-                echo "<b>This file is empty, you can input something below</b>
+                echo "<b>这是一个空文件，写点什么进去好呢</b>
                       <form action='' method='post'>
                       <textarea name='file_name' style='display: none'>{$file_name}</textarea>";
                 echo genTextarea("text", "rows=10");
-                echo "<input type='submit' value='Submit'/>"; // 创建表单
+                echo "<input type='submit' value='保存'/>"; // 创建表单
             }
         }
     } else { // 存在post请求，开始存储文件
@@ -89,17 +88,17 @@
         $file_path = "./.file/" . $file_name; // 文件的存储路径
         $text = $_POST['text']; // 文本框的内容
         if ($text == "") { // 如果文本框内容为空，没有意义
-            echo "<script> alert('Content can not be empty.') </script>";
+            echo "<script> alert('什么都不写，是宝宝不够俊美吗') </script>";
             header("refresh:0;url=http://{$host_name}/{$file_name}");
         } else {
             if (!is_dir("./.file")) mkdir("./.file", 0755); // 如果文件夹不存在，那么创建这个文件夹
             $newfile = fopen($file_path, "w"); // 创建文件
             fwrite($newfile, $text); // 写入
             if (file_exists($file_path)) { // 如果写入成功
-                echo "<h2>Successfully saved</h2>
-                      <p>On any browser enter in <b>http://{$host_name}/{$file_name}</b> to view the content.</p>
-                      <p>Please note that the information can be viewed only once.</p>
-                      <a href='http://{$host_name}'><input type='button' title='goback' value='Home'/></a>";
+                echo "<h2>保存成功</h2>
+                      <p>其它设备访问 <b>{$host_name}/{$file_name}</b> 就可以看到刚才保存的内容</p>
+                      <p>请注意，每个被保存的内容至多能被查看一次，没有被查看过的内容至多保留一年</p>
+                      <a href='http://{$host_name}'><input type='button' title='goback' value='返回主页'/></a>";
             } else echo "<p>Failed</p>";
         }
     }
