@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>NetClip - 可能是最好的网络剪贴板</title>
+    <title>NetClip - 可能是最low的剪贴板</title>
     <meta charset='utf-8' />
     <meta http-equiv='Content-type' content='text/html; charset=utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
