@@ -9,8 +9,7 @@ Move information between computers using the any url you like.
 
 ```
 web_site_root
- ├─ index.php
- └─ base.html
+ └─ index.php
 ```
 
 # Rewrite
