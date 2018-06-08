@@ -14,8 +14,8 @@ if ($file_name == "") { // 如果没有后缀，那么显示主页
     $hostname = $_SERVER['HTTP_HOST']; // 获取当前域名
     $html = str_combine(file('./base.html')); // 取网页框架
     $tmp = "<h2>How to use</h2>
-    <li><p>Enter any word behind this page's URL in browser and input anything you want.</p></li>
-    <li><p>On any PC or Phone enter in the same URL to view the text you write just now.</p></li>
+    <p><li>Enter any word behind this page's URL in browser and input anything you want.</li></p>
+    <p><li>On any PC or Phone enter in the same URL to view the text you write just now.</li></p>
     <p><b>For example: <a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></p>
     <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>More information...</a></p>
     <p align='right'><a href='http://www.lucien.ink' target='_blank'>&copy; 2018 Lucien Shui</a></p>";
