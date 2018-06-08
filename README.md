@@ -56,7 +56,7 @@ if (!-e $request_filename) {
 
 # Demo
 
-[clip.lucien.ink](http://www.lucien.ink/go/clip)
+[](http://www.lucien.ink/go/clip)
 
 # Copyright
 
