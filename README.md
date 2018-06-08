@@ -9,7 +9,7 @@ web_site_root
  └─ index.php
 ```
 
-## Rewrite规则（必须配置）
+## Rewrite（必须）
 
 #### Nginx
 
