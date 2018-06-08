@@ -11,7 +11,6 @@ Move information between computers using the any url you like.
 web_site_root
  ├─ index.php
  ├─ submit.php
- ├─ homePage.html
  └─ base.html
 ```
 
