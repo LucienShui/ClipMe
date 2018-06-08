@@ -44,19 +44,19 @@ if (!-e $request_filename) {
 
 ## For example
 
-+ One computer or smartphone open the URL [clip.lucien.ink/example](https://www.lucien.ink/go/clipexample/), then input something into the textarea.
++ One computer or smartphone open the URL [netclip.cf/example](https://www.lucien.ink/go/clipexample/), then input something into the textarea.
 
 + Then another computer or smartphone can enter in the same URL to view the information for once.
 
 ## Tips
 
-+ For security the information in [clip.lucien.ink](http://www.lucien.ink/go/clip) is destroyed as soon as it is read.
++ For security the information in [netclip.cf](http://www.lucien.ink/go/clip) is destroyed as soon as it is read.
 
 + Anyone visiting the same URL at a later time will not be able to see the message.
 
 # Demo
 
-[clip.lucien.ink](http://www.lucien.ink/go/clip)
+[netclip.cf](http://www.lucien.ink/go/clip)
 
 # Copyright
 
