@@ -57,7 +57,7 @@
     }
 
     if ($_POST['file_name'] == "") { // 如果没有post请求
-        $file_name = str_replace('/', '', $_SERVER["PATH_INFO"]); // 取当前路由的后缀
+        $file_name = str_replace('/', '', $_SERVER["REQUEST_URI"]); // 取当前路由的后缀
         if ($file_name == "") { // 如果没有后缀，那么显示主页
             $hostname = $_SERVER['HTTP_HOST']; // 获取当前域名
             echo "<h2>How to use</h2>
@@ -83,7 +83,7 @@
                 echo "<input type='submit' value='Submit'/>"; // 创建表单
             }
         }
-    } else { // 
+    } else { // 存在post请求，开始存储文件
         $file_name = $_POST['file_name']; // 文件名称
         $host_name = $_SERVER['HTTP_HOST']; // 网站域名
         $file_path = "./.file/" . $file_name; // 文件的存储路径
