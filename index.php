@@ -51,10 +51,9 @@
         foreach ($arr as $line) $ret = $ret . $line;
         return $ret;
     }
-
-    if ($_POST['file_name'] == "") { // 如果没有post请求
-        $file_name = str_replace('/', '', $_SERVER["REQUEST_URI"]); // 取当前路由的后缀
-        if ($file_name == "") { // 如果没有后缀，那么显示主页
+    if ($_POST['request_url'] == "") { // 如果没有post请求
+        $request_url = str_replace('/', '', $_SERVER["REQUEST_URI"]); // 取当前路由的后缀
+        if ($request_url == "") { // 如果没有后缀，那么显示主页
             $hostname = $_SERVER['HTTP_HOST']; // 获取当前域名
             echo "<h2>使用指北</h2>
             <p><li>在网址的后面随意添加一些文字，举个栗子：<b><a href = 'http://{$hostname}/example'>{$hostname}/example</a></b></li></p>
@@ -62,7 +61,7 @@
             <p><a href='http://github.com/LucienShui/NetClip' target='_blank'>更多信息...</a></p>
             <p align='right'>&copy; 2018 版权所有 <a href='http://www.lucien.ink' target='_blank'>Lucien Shui</a></p>";
         } else {
-            $file_name = str_replace('.', 'dot', $file_name); // 将"."全部替换
+            $file_name = str_replace('.', 'dot', $request_url); // 将"."全部替换
             $file_path = "./.file/" . $file_name; // 文件路径
             $host_name = $_SERVER['HTTP_HOST'];
             if (file_exists($file_path)) { // 如果文件存在
@@ -75,13 +74,14 @@
             } else { // 如果文件不存在
                 echo "<b>这是一个空文件，写点什么进去好呢</b>
                       <form action='' method='post'>
-                      <textarea name='file_name' style='display: none'>{$file_name}</textarea>";
+                      <textarea name='request_url' style='display: none'>{$request_url}</textarea>";
                 echo "<textarea name='text' rows='10'></textarea>";
                 echo "<input type='submit' value='保存'/>"; // 创建表单
             }
         }
     } else { // 存在post请求，开始存储文件
-        $file_name = $_POST['file_name']; // 文件名称
+        $request_url = $_POST['request_url']; // 文件名称
+        $file_name = str_replace('.', 'dot', $request_url); // 将"."全部替换
         $host_name = $_SERVER['HTTP_HOST']; // 网站域名
         $file_path = "./.file/" . $file_name; // 文件的存储路径
         $text = $_POST['text']; // 文本框的内容
@@ -94,7 +94,7 @@
             fwrite($newfile, $text); // 写入
             if (file_exists($file_path)) { // 如果写入成功
                 echo "<h2>保存成功</h2>
-                      <p><li>其它设备访问 <b>{$host_name}/{$file_name}</b> 或 <a href = 'http://qrcode.lucien.ink?text=http://{$host_name}/{$file_name}&tag=NetClip - 可能是最low的在线剪贴板' target='_blank'>扫描二维码</a> 就可以看到刚才保存的内容</li></p>
+                      <p><li>其它设备访问 <b>{$host_name}/{$request_url}</b> 或 <a href = 'http://qrcode.lucien.ink?text=http://{$host_name}/{$request_url}&tag=NetClip - 可能是最low的在线剪贴板' target='_blank'>扫描二维码</a> 就可以看到刚才保存的内容</li></p>
                       <p><li>请注意，每个内容只能被查看一次，没有被查看过的内容至多保留一年</li></p>
                       <a href='http://{$host_name}'><input type='button' title='goback' value='返回主页'/></a>";
             } else echo "<p>Failed</p>";
