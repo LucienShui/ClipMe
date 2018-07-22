@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>NetClip</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" /></head>
+	
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark fixed-top">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="navbar-toggler-icon"></span>
+						</button> <a class="navbar-brand" href="#">NetClip</a>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="navbar-nav">
+								<li class="nav-item dropdown">
+									 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+									 	其它工具
+									 </a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										<div class="dropdown-header">在线二维码生成</div>
+										<a class="dropdown-item" href="http://qrcode.lucien.ink">QRCode Generator</a>
+									</div>
+								</li>
+							</ul>
+							<ul class="navbar-nav ml-md-auto">
+								<li class="nav-item dropdown">
+									 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">联系我</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+										<div class="dropdown-header">Email</div>
+										<a class="dropdown-item">lucien@lucien.ink</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<br><br><br><br>
+					<div class="row">
+						<div class="col-md-4">
+						</div>
+						<div class="col-md-4">
+							<form role="form" action="handle.php" target="_blank" method="post">
+								<div class="form-group">
+									<legend>网络剪贴板</legend>
+									<hr/>
+									<label title="点击以了解索引串及其用法" d="modal-74921" href="#modal-container-74921" role="button" data-toggle="modal">
+										剪贴板索引串
+										<a id="modal-74921" href="#modal-container-74921" role="button" data-toggle="modal"><span class="badge badge-pill badge-info">?</span></a>
+									</label>
+									<input name="url" type="text" class="form-control" placeholder="在这里输入剪贴板的索引串" />
+								</div>
+								<button type="submit" class="btn btn-primary">前往</button>
+							</form>
+							<div class="modal fade" id="modal-container-74921" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="myModalLabel">索引串及其用法</h5>
+											<button type="button" class="close" data-dismiss="modal">
+												<span aria-hidden="true">&times;</span></button>
+										</div>
+										<div class="modal-body">
+											<li>索引串可以为除"<b>/</b>"之外的任何可见字符</li>
+											<li>如果索引串对应的剪贴板为空，则会新建一份空的剪贴板，否则就会显示对应的剪贴板的内容</li>
+											<li>除了通过在网页中填写索引串来访问剪贴板之外，还可以通过访问<a style="color: red">本站网址+"/"+索引串</a>的方式来访问剪贴板</li>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button></div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="alert alert-dismissable alert-info">
+								每个被创建的剪贴板只能被<strong>查看一次</strong>
+							</div>
+						</div>
+						<div class="col-md-4">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	</body>
+	<footer>
+		<div style="text-align: center;">
+			<p>&copy; 2018 版权所有 <a href='http://www.lucien.ink' target='_blank'>Lucien Shui</a></p>
+		</div>
+	</footer>
+</html>
