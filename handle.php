@@ -15,12 +15,14 @@ $request_url = str_replace('/', '', $_SERVER["REQUEST_URI"]); // 取当前路由
 if ($request_url == "") { // 如果没有后缀，那么显示主页
     header("Refresh:0;url=/" . $url);
 } else {
-    if (preg_match('/^[a-zA-Z0-9]*$/', $str) == 0) {
+    if (preg_match('/^[a-zA-Z0-9]*$/', $request_url) == 0) {
         echo "<script> alert('索引串只能由大小写英文字母或数字组成') </script>";
         header("Refresh:0;url=/" . $url);
     }
     $html = str_combine(file("frame.html"));
     $file_name = $request_url;
+    session_start();
+    $_SESSION['keyword'] = $file_name;
     $file_path = "./.file/" . $file_name; // 文件路径
     if (file_exists($file_path)) { // 如果文件存在
         $html = str_replace('{$body$}', str_combine(file('handle_show.html')), $html);
