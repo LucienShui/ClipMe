@@ -13,7 +13,7 @@ if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
     $config = include_once('php/config.php');
     $html = str_combine(file("html/frame.html"));
-    $html = str_replace('{$body$}', str_combine(file('/html/success.html')), $html);
+    $html = str_replace('{$body$}', str_combine(file('html/success.html')), $html);
     $html = str_replace('{$url$}', $config['website'] . $keyword, $html);
     $html = str_replace('{$keyword$}', $keyword, $html);
     echo $html;
