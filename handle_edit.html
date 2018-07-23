@@ -5,7 +5,7 @@
         <form role="form" action="submit.php" method="post">
             <div class="form-group">
                     <input name="file_name" style="display: none" value="{$file_name$}" title="null"/>
-                    <textarea class="form-control" name='text' rows='10' style="resize: none"
+                    <textarea class="form-control" required="required" name='text' rows='10' style="resize: none"
                               placeholder="这是一个空的剪切板，写点什么进去吧"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">保存</button>
