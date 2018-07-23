@@ -9,8 +9,8 @@ function str_combine($arr) { // 将一个string数组连接成一个string
     foreach ($arr as $line) $ret = $ret . $line;
     return $ret;
 }
-$html = str_combine(file("frame.html"));
-$html = str_replace('{$body$}', str_combine(file("home.html")), $html);
+$html = str_combine(file("/html/frame.html"));
+$html = str_replace('{$body$}', str_combine(file("/html/home.html")), $html);
 $value = '';
 session_start();
 if (isset($_SESSION['keyword'])) {

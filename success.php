@@ -11,9 +11,9 @@ function str_combine($arr) { // 将一个string数组连接成一个string
 }
 if (isset($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
-    $config = include_once ('config.php');
-    $html = str_combine(file("frame.html"));
-    $html = str_replace('{$body$}', str_combine(file('success.html')), $html);
+    $config = include_once('php/config.php');
+    $html = str_combine(file("html/frame.html"));
+    $html = str_replace('{$body$}', str_combine(file('/html/success.html')), $html);
     $html = str_replace('{$url$}', $config['website'] . $keyword, $html);
     $html = str_replace('{$keyword$}', $keyword, $html);
     echo $html;

@@ -12,7 +12,7 @@ if (isset($_POST['file_name'])) {
     $newfile = fopen($file_path, "w"); // 创建文件
     fwrite($newfile, $text); // 写入
     if (file_exists($file_path)) { // 如果写入成功
-        header("Refresh:0;url=success.php?keyword=" . $file_name);
+        header("Refresh:0;url=/success.php?keyword=" . $file_name);
     } else echo "<p>Failed</p>";
 }
 ?>
