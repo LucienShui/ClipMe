@@ -186,7 +186,7 @@ function success($keyword, $url) {
                 <ul>
                     <li>在主页中输入索引串</li>
                     <li>在浏览器中访问：<a href="<?php echo $url?>"><?php echo $url?></a></li>
-                    <li><a href = 'http://qrcode.lucien.ink?text={$url$}&tag=NetClip - 可能是最low的在线剪贴板' target='_blank'>扫描二维码</a></li>
+                    <li><a href = 'http://qrcode.lucien.ink?text=<?php echo $url?>&tag=NetClip - 可能是最low的在线剪贴板' target='_blank'>扫描二维码</a></li>
                 </ul>
                 <p>
                     <a class="btn btn-primary btn-large" href="/">返回主页</a>
