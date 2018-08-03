@@ -5,6 +5,6 @@
  * Time: 22:35
  */
 return array (
-    'website' => 'http://clip.lucien.ink/',
+    'website' => 'http://netclip.cf/',
 );
 ?>
