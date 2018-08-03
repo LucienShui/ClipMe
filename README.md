@@ -10,15 +10,12 @@ web_root
  ├─ handle.php
  ├─ success.php
  ├─ favicon.ico (if you have)
- ├─ html
- │   ├─ frame.html
- │   ├─ handle_edit.html
- │   ├─ handle_show.html
- │   ├─ home.html
- │   └─ success.html
- └─ php
+ ├─ js
+ │   └─ tools.js
+ └─ util
      ├─ config.php
-     ├─ redirect.php
+     ├─ frame.php
+     ├─ util.php
      └─ submit.php
 ```
 
