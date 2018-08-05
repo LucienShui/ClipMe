@@ -4,6 +4,7 @@
  * Date: 2018/8/3
  * Time: 19:32
  */
+
 function head() {
     ?>
     <!DOCTYPE html>
@@ -25,7 +26,7 @@ function head() {
                             data-target="#bs-example-navbar-collapse-1">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="http://netclip.cf">NetClip</a>
+                    <a class="navbar-brand" href="<?php $config = require 'config.php'; echo $config['website']; ?>">NetClip</a>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
