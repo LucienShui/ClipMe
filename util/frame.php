@@ -79,12 +79,12 @@ function foot() {
 
 function home($value) {
     ?>
-    <script src="js/tools.js"></script>
+    <script src="/js/tools.js"></script>
     <div class='row'>
         <div class='col-md-4'>
         </div>
         <div class='col-md-4'>
-            <div>
+            <div onkeyup="enterJudge()">
                 <div class='form-group'>
                     <h3>网络剪贴板</h3>
                     <hr/>

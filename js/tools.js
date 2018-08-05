@@ -1,3 +1,9 @@
+function enterJudge() {
+    if (window.event.keyCode === 13) {
+        redirect();
+    }
+}
+
 function check(ch) {
     return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z') || ('0' <= ch && ch <= '9');
 }
