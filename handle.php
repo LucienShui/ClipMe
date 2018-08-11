@@ -5,7 +5,7 @@
  * Time: 19:27
  */
 require 'util/frame.php';
-require 'util/util.php';
+require 'util/tableEditor.php';
 $request_url = str_replace('/', '', $_SERVER["REQUEST_URI"]); // 取当前路由的后缀
 if ($request_url == "") { // 如果没有后缀，那么显示主页
     header("Refresh:0;url=/");
@@ -14,16 +14,16 @@ if ($request_url == "") { // 如果没有后缀，那么显示主页
         echo "<script> alert('索引串只能由大小写英文字母或数字组成') </script>";
         header("Refresh:0;url=/");
     } else {
-        $file_name = $request_url;
+        $it = new tableEditor();
+        $keyword = $request_url;
         session_start();
-        $_SESSION['keyword'] = $file_name;
-        $file_path = "./.file/" . $file_name; // 文件路径
+        $_SESSION['keyword'] = $keyword;
         head();
-        if (file_exists($file_path)) { // 如果文件存在
-            show(htmlspecialchars(str_combine(file($file_path))));
-            unlink($file_path);
+        if ($it->exists($keyword)) { // 如果文件存在
+            show($it->get_text($keyword));
+            $it->remove($keyword);
         } else { // 如果文件不存在
-            edit($file_name);
+            edit($keyword);
         }
         foot();
     }

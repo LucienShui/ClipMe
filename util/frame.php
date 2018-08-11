@@ -132,7 +132,7 @@ function home($value) {
     <?php
 }
 
-function edit($file_name) {
+function edit($keyword) {
     ?>
     <div class="row">
         <div class="col-md-2">
@@ -140,7 +140,7 @@ function edit($file_name) {
         <div class="col-md-8">
             <form role="form" action="/util/submit.php" method="post">
                 <div class="form-group">
-                    <input name="file_name" style="display: none" value="<?php echo $file_name; ?>" title="null"/>
+                    <input name="keyword" style="display: none" value="<?php echo $keyword; ?>" title="null"/>
                     <textarea class="form-control" required="required" name='text' rows='10' style="resize: none"
                               placeholder="这是一个空的剪切板，写点什么进去吧"></textarea>
                 </div>
