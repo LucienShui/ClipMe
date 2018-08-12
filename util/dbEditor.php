@@ -35,7 +35,6 @@ class dbEditor {
 
     public function exists($keyword) {
         $sql = $this->connection->prepare("SELECT `keyword` FROM `clip` WHERE `keyword` = ?");
-        if (!$sql) return $this->error();
         $sql->bind_param('s', $keyword);
         $sql->execute();
         $sql->store_result();
