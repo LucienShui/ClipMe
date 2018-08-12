@@ -11,5 +11,5 @@ $sqlSet = array(
 foreach ($sqlSet as $sql) if (!$connection->query($sql)) die('Error');
 echo 'Success';
 unlink('init.php');
-header("Refresh:0;url=/" . $url);
+header("Refresh:0;url=/");
 ?>
