@@ -47,7 +47,7 @@ if (!-e $request_filename) {
 
 ## 其它
 
-+ 为了信息安全性考虑，所有存储在 [clip.lucien.ink](http://www.lucien.ink/go/clip) 中的文本信息在被查看过一次之后就会被立即销毁。
++ 为了信息安全性考虑，所有存储在 [netclip.lucien.ink](http://www.lucien.ink/go/clip) 中的文本信息在被查看过一次之后就会被立即销毁。
 
 + 也就是说一旦某个后缀被看过，那么下一个访问这个网址的人将会看到这是一个无人使用的后缀。
 
