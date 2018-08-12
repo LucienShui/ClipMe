@@ -1,5 +1,5 @@
 <?php
-$config = require_once('config.php');
+$config = require('config.php');
 $connection = mysqli_connect($config['dbhost'], $config['username'], $config['password']);
 if (!$connection) die('Error' . mysqli_error($connection));
 $sqlSet = array(
