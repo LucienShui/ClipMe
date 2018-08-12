@@ -19,6 +19,10 @@ web_root
      └─ submit.php
 ```
 
+修改web_root/util/config.php中的数据库相关的信息，并将website项更改为服务器的域名。
+
+第一次启动网页时，访问web_root/util/init.php来初始化数据库。
+
 ### Rewrite（必须）
 
 #### Nginx
@@ -51,7 +55,7 @@ if (!-e $request_filename) {
 
 ## Demo
 
-[clip.lucien.ink](http://www.lucien.ink/go/clip)
+[netclip.lucien.ink](http://www.lucien.ink/go/clip)
 
 ## 版权所有
 
