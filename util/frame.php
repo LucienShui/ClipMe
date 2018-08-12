@@ -13,7 +13,7 @@ function head() {
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>NetClip</title>
+        <title>ClipMe</title>
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
     </head>
 
@@ -26,7 +26,7 @@ function head() {
                             data-target="#bs-example-navbar-collapse-1">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php $config = require 'config.php'; echo $config['website']; ?>">NetClip</a>
+                    <a class="navbar-brand" href="<?php $config = require 'config.php'; echo $config['website']; ?>">ClipMe</a>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
@@ -36,7 +36,7 @@ function head() {
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
                                     <div class="dropdown-header">网络粘贴板</div>
-                                    <a class="dropdown-item" href="http://www.lucien.ink/go/paste">NetPaste</a>
+                                    <a class="dropdown-item" href="http://www.lucien.ink/go/paste">PasteMe</a>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-header">在线二维码生成</div>
                                     <a class="dropdown-item" href="http://qrcode.lucien.ink">QRCode Generator</a>
@@ -187,7 +187,7 @@ function success($keyword, $url) {
                 <ul>
                     <li>在主页中输入索引串</li>
                     <li>在浏览器中访问：<a href="<?php echo $url?>"><?php echo $url?></a></li>
-                    <li><a href = 'http://qrcode.lucien.ink?text=<?php echo $url?>&tag=NetClip - 可能是最low的在线剪贴板' target='_blank'>扫描二维码</a></li>
+                    <li><a href = 'http://qrcode.lucien.ink?text=<?php echo $url?>&tag=ClipMe - 可能是最low的在线剪贴板' target='_blank'>扫描二维码</a></li>
                 </ul>
                 <p>
                     <a class="btn btn-primary btn-large" href="/">返回主页</a>
