@@ -1,5 +1,8 @@
 # 此项目已合并至[PasteMe](https://github.com/LucienShui/PasteMe)
 
+---
+
+# 以下是曾经的内容
 
 # ClipMe
 
