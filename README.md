@@ -1,3 +1,6 @@
+# 此项目已合并至[PasteMe](https://github.com/LucienShui/PasteMe)
+
+
 # ClipMe
 
 在不同的设备之间用自定义的链接来传输文本内容。
